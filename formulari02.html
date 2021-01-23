@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>SSS</h1>
+    <div id="info">
+
+    </div>
+    <div class="caja">
+        <form name="miform" action="principal.html" method="POST" onsubmit="return validarformulario();">
+            <table class="tabla">
+                <tr>
+                <table>
+                    <tr>
+                        <td><label for="">Rut:</label></td>
+                        <td><input type="number" id="rut" name="rut" ></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Nombre:</label></td>
+                        <td><input type="text" id="nombre" name="nombre" ></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Apellido Pterno:</label></td>
+                        <td><input type="text" id="ap" name="ap" ></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Apellido Materno:</label></td>
+                        <td><input type="text" id="am" name="am" ></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sexo">Sexo:</label></td>
+                        <td>
+                            <input type="radio" id="sex">Masculino
+                            <input type="radio" id="sex">Femenino
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Nivel de estudio:</label></td>
+                        <td>
+                            <input type="checkbox" id="es">No tiene <br>
+                            <input type="checkbox" id="es">Técnico <br>
+                            <input type="checkbox" id="es">Universidad
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Ciudad de nacimiento</label></td>
+                        <td>
+                            <select name="Ciudad" id="" >
+                            <option value="">Lima</option>
+                            <option value="">Ica</option>
+                            <option value="">Tumbes</option>
+                            <option value="">Tacna</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Curriculum</label></td>
+                        <td><input type="file" name="archivo" accept=".doc,pdf/*"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Foto</label></td>
+                        <td><input type="file" name="foto" accept=".jpg,png/*"></td>
+                    </tr> 
+                </table>
+            </tr>
+            <tr><tr><input type="submit" value="Registrar trabajador"  style="width: 400px;" ></tr></tr>
+            </table>
+        </form>
+    </div>
+    <script type="text/javascript">
+    function validarformulario(){
+        var texto;
+        var ruut=document.forms['miform']['rut'].value;
+            //null es un valor - para poder comparar 
+            if(ruut==null||ruut=="")
+            {
+            texto="<span style='color:red'>Ingresar el nombre del usuario</span>";
+            document.getElementById('info').innerHTML=texto;
+            return false; //Bloqueo de la continuacion
+            } else 
+            if (ruut.length<11||ruut.length>11)
+            {
+                texto="<span style='color:red'>Ingresar 11 caracteres</span>"; 
+                document.getElementById('info').innerHTML=texto;
+            return false;
+            }
+        var Sexo=document.forms['mi form']['sex'].value;
+            if(sexo==null||sexo=="")
+            {
+            texto="<span style='color:red'>Seleccionar sexo</span>";
+            document.getElementById('info').innerHTML=texto;
+            return false;   
+            }
+        var estudios=document.forms['mi form']['es'].value;
+            if(estudios==null||estudios=="")
+            {
+            texto="<span style='color:red'>Seleccionar grado academico</span>";
+            document.getElementById('info').innerHTML=texto;
+            return false;   
+            }
+    }
+
+    </script>
+</body>
+</html>
